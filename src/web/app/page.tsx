@@ -1,4 +1,4 @@
-import { getTasks, createTask, toggleTask } from './actions';
+import { getTasks, createTask, toggleTask, deleteTask } from './actions';
 
 export default async function Home() {
   const tasks = await getTasks();
@@ -68,6 +68,22 @@ export default async function Home() {
               >
                 {task.title}
               </span>
+              <form
+                action={async () => {
+                  'use server';
+                  await deleteTask(task.id);
+                }}
+              >
+                <button
+                  type="submit"
+                  className="ml-auto text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors"
+                  aria-label="Delete task"
+                >
+                  <svg viewBox="0 0 16 16" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 4h12M5 4V2h6v2M6 7v5M10 7v5M3 4l1 9h8l1-9" />
+                  </svg>
+                </button>
+              </form>
             </li>
           ))}
         </ul>
