@@ -63,8 +63,7 @@ Lightweight ADR-style record of the main design choices in this repository, reco
 ## Data model
 
 | Table | Columns | Migration |
-|-------|---------|-----------|
-| `users` | `id serial PK`, `email varchar(255) unique not null`, `created_at timestamp default now()` | `1718500000000_initial-schema.js` |
+|-------|---------|-----------|\n| `users` | `id serial PK`, `email varchar(255) unique not null`, `created_at timestamp default now()` | `1718500000000_initial-schema.js` |
 | `tasks` | `id serial PK`, `title varchar(500) not null`, `completed boolean default false`, `created_at timestamp default now()` | `1718500001000_create-tasks.js` |
 
 `users` exists, but nothing uses it yet: tasks have no owner and there is no authentication.
@@ -77,3 +76,5 @@ Lightweight ADR-style record of the main design choices in this repository, reco
 | GET | `/tasks` | All tasks, ordered by `created_at ASC` |
 | POST | `/tasks` | `{ title }`, trimmed and required, otherwise 400; returns 201 |
 | PATCH | `/tasks/:id` | `{ completed?, title? }`; 404 if the task is missing |
+
+hi it's me
