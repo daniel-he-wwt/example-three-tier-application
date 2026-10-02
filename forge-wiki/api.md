@@ -180,6 +180,37 @@ curl -X PATCH http://localhost:3001/tasks/1 \
   -d '{"title":"New title"}'
 ```
 
+### Delete a Task
+
+```
+DELETE /tasks/:id
+```
+
+Delete a task permanently.
+
+**URL Parameters:**
+
+- `id` — Task ID (integer)
+
+**Response (204 No Content):**
+
+No response body.
+
+**Error responses:**
+
+```json
+HTTP/1.1 404 Not Found
+{
+  "error": "Not found"
+}
+```
+
+**Example:**
+
+```bash
+curl -X DELETE http://localhost:3001/tasks/1
+```
+
 ## Data Types
 
 ### Task Object
@@ -208,6 +239,7 @@ The API returns appropriate HTTP status codes:
 
 - `200` — Success (GET, PATCH)
 - `201` — Created (POST)
+- `204` — Success with no content (DELETE)
 - `400` — Bad Request (invalid input)
 - `404` — Not Found (task doesn't exist)
 - `5xx` — Server errors (database connection issues, etc.)
