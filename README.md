@@ -130,5 +130,3 @@ DATABASE_URL=postgres://app:app@localhost:5432/app npx node-pg-migrate up
 # Roll back the last migration
 DATABASE_URL=postgres://app:app@localhost:5432/app npx node-pg-migrate down
 ```
-
-When running via Docker Compose the `migrate` service handles this automatically on startup.
