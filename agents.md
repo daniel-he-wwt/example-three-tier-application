@@ -14,6 +14,15 @@ claude
 
 Claude Code reads the project structure automatically. It works best when you give it specific, scoped tasks rather than broad ones.
 
+## Custom slash commands
+
+This repo ships a few project-specific slash commands under `.claude/commands/`
+so you don't have to leave the terminal to run common checks:
+
+| Command | What it does |
+|---------|--------------|
+| `/todos` | Scans the codebase for outstanding `TODO` / `FIXME` / `HACK` / `XXX` markers and lists them grouped by file (optionally scoped to a path, e.g. `/todos src/api`). It shells out to `scripts/find-todos.sh`. |
+
 ## Suggested prompts for common tasks
 
 ### Understanding the codebase
@@ -77,6 +86,13 @@ Review the API's error handling. Are there cases where the server could crash or
 ```
 Is there any N+1 query risk in the API? Check all database calls.
 ```
+
+```
+/todos
+```
+
+> Use the `/todos` slash command above instead of asking Claude to grep for
+> `TODO` comments manually — it's faster and scoped to real markers only.
 
 ## General AI-assisted development tips
 
