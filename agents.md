@@ -14,6 +14,18 @@ claude
 
 Claude Code reads the project structure automatically. It works best when you give it specific, scoped tasks rather than broad ones.
 
+## Custom slash commands
+
+This repo ships a few project-specific slash commands under `.claude/commands/`.
+They're available in any Claude Code session opened in this repo:
+
+- `/todos` — scans the whole codebase for `TODO`, `FIXME`, `HACK`, and `XXX`
+  markers and lists them grouped by file, so you can see outstanding work
+  without leaving the terminal.
+
+Add new ones by dropping a markdown file with the command's instructions into
+`.claude/commands/<name>.md` — the filename becomes `/<name>`.
+
 ## Suggested prompts for common tasks
 
 ### Understanding the codebase
