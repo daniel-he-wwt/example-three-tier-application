@@ -21,7 +21,7 @@ Severity: **High**: likely to break a deployment or lose data. **Medium**: wrong
 | 11 | Docs | README Terraform command leaves out the required `db_image` | Low |
 | 12 | DB | `users` table unused; timestamps lack a time zone | Low |
 | 13 | Infra | Connection-limit and cost points | Low |
-| 14 | API | Missing features: no DELETE, no pagination, no auth | Low |
+| 14 | API | Missing features: no pagination, no auth | Low |
 
 ## Details
 
@@ -72,5 +72,5 @@ Every push to `main` deploys to `dev` automatically, and a manual dispatch can a
 - `db-f1-micro` is a shared-core tier that isn't covered by the Cloud SQL SLA.
 - The VPC Access connector keeps at least 2 instances running all the time, so `dev` still costs money even when Cloud Run scales to zero.
 
-### 14. Missing features: no DELETE, no pagination, no auth (Low)
-There is no endpoint for deleting tasks. `GET /tasks` returns every row, and there is no authentication or authorization of any kind. `agents.md` lists these as example exercises.
+### 14. Missing features: no pagination, no auth (Low)
+`GET /tasks` returns every row, and there is no authentication or authorization of any kind. `agents.md` lists these as example exercises. (A `DELETE /tasks/:id` endpoint now exists.)
